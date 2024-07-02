@@ -51,4 +51,35 @@ display: inline-block;
 }
 .section-right{
     margin-left: 30px;
+    width: 100%;
+}
+.load{
+    color: $font-primary;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    h4{
+        font-weight: 500;
+    }
+}
+
+@media (max-width:800px) {
+    .movie-section{
+        flex-direction: column-reverse;
+    }
+    .section-right{
+        margin-left: 0px;
+        img {
+            width: 100%;
+        }
+    }
+    .movie-info > div span:first-child {
+        display: block;
+    
+    }
+    .movie-title{
+        font-size: 30px;
+        margin-top: 20px;
+    }
+    
 }

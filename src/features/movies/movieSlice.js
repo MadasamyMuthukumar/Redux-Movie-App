@@ -28,6 +28,8 @@ const initialState={
     movies: {},
     selectMovieOrShow: {},
     shows: {},
+    loading:false,
+    loading2:false,
 }
 
 const movieSlice=createSlice({
@@ -40,20 +42,32 @@ const movieSlice=createSlice({
         }
     },
     extraReducers:(builder)=>{
-         builder.addCase(fetchAsyncMovies.pending,()=>{
-            console.log("pending");
+         builder.addCase(fetchAsyncMovies.pending,(state)=>{
+          state.loading=true;
+            // console.log("pending");
          })
          builder.addCase(fetchAsyncMovies.fulfilled,(state,action)=>{
+          state.loading=false;
             state.movies=action.payload
-            console.log("fulfiled");
+            // console.log("fulfiled");
          })
          builder.addCase(fetchAsyncMovies.rejected,()=>{
-            console.log("rejected");
+            // console.log("rejected");
          })
+
+         builder.addCase(fetchAsyncShows.pending,(state)=>{
+          state.loading=true;
+         })
+
          builder.addCase(fetchAsyncShows.fulfilled,(state,{payload})=>{
+          state.loading=false;
               state.shows=payload;
          })
+         builder.addCase(fetchAsyncMovieOrShowDetail.pending,(state)=>{
+            state.loading2=true;
+       })
          builder.addCase(fetchAsyncMovieOrShowDetail.fulfilled,(state,{payload})=>{
+          state.loading2=false;
             state.selectMovieOrShow=payload;
          })
     }

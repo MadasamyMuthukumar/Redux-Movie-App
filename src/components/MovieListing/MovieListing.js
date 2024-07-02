@@ -6,7 +6,9 @@ import './MovieListing.scss'
 const MovieListing = () => {
   const movies=useSelector(getAllMovies);
   const shows = useSelector((state)=>state.movies.shows)
+  const loadingStatus=useSelector((state)=>state.movies.loading);
   let renderMovies, renderShows="";
+
   /**
    * looping through the movies if the Response was true(which means the repsonse got) then send the data to Moviecar
    * else display erro
@@ -34,22 +36,26 @@ const MovieListing = () => {
 
   console.log("Movies ",renderShows.length);
   return (
+    <>
+    {!loadingStatus? (
     <div className='movie-wrapper container'>
       <div className='movie-list'>
         <h2>Movies</h2>
         <div className='movie-container'>
-        {renderMovies.length > 0 ? renderMovies :  <span className='empty-msg'>No Movies Available!</span> }  {/*will be list of divs */}
+        {renderMovies.length >0? renderMovies :  <span className='empty-msg'>No Movies Available!</span> }  {/*will be list of divs */}
         </div>
       </div>
 
       <div className='show-list'>
         <h2>Shows</h2>
         <div className='show-container'>
-        {renderShows.length > 0 ? renderShows : <span className='empty-msg'>No Shows Available!</span>}  {/*will be list of divs */}
+        {renderShows.length>0? renderShows : <span className='empty-msg'>No Shows Available!</span>}  {/*will be list of divs */}
         </div>
       </div>
       
     </div>
+    ):(<div className='load'><h4>Loading...</h4></div>)}
+    </>
   )
 }
 

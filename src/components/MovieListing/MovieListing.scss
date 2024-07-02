@@ -18,3 +18,12 @@
 .empty-msg{
     color: $font-primary;
 }
+.load{
+    color: $font-primary;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    h4{
+        font-weight: 500;
+    }
+}
