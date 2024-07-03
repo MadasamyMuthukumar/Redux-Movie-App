@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './PageNotFound.scss'
 const PageNotFound = () => {
   return (
-    <div>
+    <div class="error">
       PageNotFound
     </div>
   )

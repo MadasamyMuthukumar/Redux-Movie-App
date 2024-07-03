@@ -1,0 +1,9 @@
+@import '../../common/colors.scss';
+.error{
+    color: $font-primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding: 30px 0;
+    height: 78vh;
+}

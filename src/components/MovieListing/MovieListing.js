@@ -36,6 +36,7 @@ const MovieListing = () => {
 
   console.log("Movies ",renderShows.length);
   return (
+    
     <>
     {!loadingStatus? (
     <div className='movie-wrapper container'>

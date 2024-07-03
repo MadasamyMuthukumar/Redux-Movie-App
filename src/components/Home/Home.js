@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import MovieListing from '../MovieListing/MovieListing';
 import { useDispatch } from 'react-redux';
 import { fetchAsyncMovies, fetchAsyncShows } from '../../features/movies/movieSlice';
+import SearchBar from '../SearchBar/SearchBar';
 
 const Home = () => {
-  //fetching data from API 
   const dispatch=useDispatch();
   useEffect(()=>{
  
@@ -17,6 +17,7 @@ const Home = () => {
       <div>
          <div className='banner-img'>
          </div>
+         <SearchBar />
          <MovieListing/>
       </div>
   );

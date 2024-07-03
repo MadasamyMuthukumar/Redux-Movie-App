@@ -4,11 +4,9 @@ import { useParams } from 'react-router-dom'
 import { fetchAsyncMovieOrShowDetail } from '../../features/movies/movieSlice';
 import { removeSelectedMovieOrShow } from '../../features/movies/movieSlice';
 import './MovieDetail.scss';
-// import { getSelectedMovieOrShow } from '../../features/movies/movieSlice';
 const MovieDetail = () => {
   const { imdbID } = useParams();
   const dispatch = useDispatch();
-  // const data = useSelector(getSelectedMovieOrShow())
   const movieDetail = useSelector((state) => state.movies.selectMovieOrShow)
   console.log(movieDetail);
   useEffect(() => {
